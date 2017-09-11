@@ -1,0 +1,36 @@
+<%= link_to 'Profile', bios_path(current_user), class: "item" %>
+<h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  TweetGram Feed
+</h2>
+<div class="ui four column centered grid">
+  <div class="column">
+    <ul >
+      <% @posts.reverse.each do |post| %>
+      <div class="row">
+        <li class="ui list"> 
+          <div class="ui card" style="width: 285px">
+            <div class="content">
+              <div class="header"><%= post.user.email %></div>
+              <div class="description">
+                <%= link_to post.content, post %>
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="left floated">
+                <i class="calendar icon"></i>
+                <%= post.created_at.strftime("%m/%d/%Y at %I:%M %p") %>
+              </span>
+              <span class="right floated">
+                <%= link_to '<i class="write icon"></i>'.html_safe, edit_post_path(post)%> 
+                <%= link_to '<i class="trash icon"></i>'.html_safe, post, method: :delete %> 
+              </span>
+            </div>
+          </div>
+        </li>
+        <br>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

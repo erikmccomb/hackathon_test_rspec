@@ -1,0 +1,5 @@
+<%= form_for @post do |f| %>
+  <h1>Whats Happening?</h1>
+  <%= f.text_field :content, required: true, autofocus: true %>
+  <%= f.submit %>
+<% end %>

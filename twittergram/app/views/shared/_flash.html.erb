@@ -1,0 +1,14 @@
+<div class="ui container">
+  <% flash.each do |key, value| %>
+    <% if key == "success" %>
+      <div class="ui compact positive large message">
+    <% elsif key == "alert" %>
+      <div class="ui compact negative large message">
+    <% else %>
+      <div class="ui compact large message ">
+    <% end %>
+      <i class="close icon"></i>
+        <p><%= value %></p>
+    </div>
+  <% end %> 
+</div>

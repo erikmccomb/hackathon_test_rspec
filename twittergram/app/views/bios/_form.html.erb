@@ -1,0 +1,5 @@
+<%= form_for @bio do |f| %>
+  <h1>Tell us about yourself...</h1>
+  <%= f.text_field :description, required: true, autofocus: true %>
+  <%= f.submit %>
+<% end %>
