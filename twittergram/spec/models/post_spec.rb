@@ -7,7 +7,13 @@ RSpec.describe Post, type: :model do
       expect(post.content).to eq("I am a post")
     end
   end
+end
 
-  describe ''
-
+RSpec.describe Post, type: :model do
+  describe 'belongs_to' do
+    it {should belong_to(:user) }
+  end
+  describe 'association and dependency' do
+    it {should have_many(:comments).dependent(:destroy) }
+  end
 end
